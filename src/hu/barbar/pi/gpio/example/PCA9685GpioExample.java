@@ -1,30 +1,5 @@
 package hu.barbar.pi.gpio.example;
-/*
- * #%L 
- * ********************************************************************** 
- * ORGANIZATION  :  Pi4J 
- * PROJECT       :  Pi4J :: Java Examples 
- * FILENAME      :  PCA9685GpioExample.java   
- *  
- * This file is part of the Pi4J project. More information about  
- * this project can be found here:  http://www.pi4j.com/ 
- * ********************************************************************** 
- * %% 
- * Copyright (C) 2012 - 2013 Pi4J 
- * %% 
- * Licensed under the Apache License, Version 2.0 (the "License"); 
- * you may not use this file except in compliance with the License. 
- * You may obtain a copy of the License at 
- *  
- *      http://www.apache.org/licenses/LICENSE-2.0 
- *  
- * Unless required by applicable law or agreed to in writing, software 
- * distributed under the License is distributed on an "AS IS" BASIS, 
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
- * See the License for the specific language governing permissions and 
- * limitations under the License. 
- * #L% 
- */
+
 import java.math.BigDecimal; 
 import java.util.Scanner; 
  
@@ -38,18 +13,6 @@ import com.pi4j.io.i2c.I2CBus;
 import com.pi4j.io.i2c.I2CFactory; 
  
 /**
- * <p> 
- * This example code demonstrates how to setup a custom GpioProvider 
- * for GPIO PWM pin control using the PCA9685 16-channel, 12-bit PWM I2C-bus LED/Servo controller. 
- * </p> 
- * <p> 
- * More information about the PCA9685 can be found here:<br> 
- * <a href="http://www.nxp.com/documents/data_sheet/PCA9685.pdf">PCA9685.pdf</a><br><br> 
- * ...and especially about the board here:<br> 
- * <a href="http://www.adafruit.com/products/815">Adafruit 16-Channel 12-bit PWM/Servo Driver</a> 
- * </p> 
- *  
- * @author Christian Wehrli 
  * @see PCA9685GpioProvider 
  */ 
 public class PCA9685GpioExample { 
@@ -119,10 +82,10 @@ public class PCA9685GpioExample {
     private static GpioPinPwmOutput[] provisionPwmOutputs(final PCA9685GpioProvider gpioProvider) { 
         GpioController gpio = GpioFactory.getInstance(); 
         GpioPinPwmOutput myOutputs[] = { 
-                gpio.provisionPwmOutputPin(gpioProvider, PCA9685Pin.PWM_00, "Pulse 00"), 
-                gpio.provisionPwmOutputPin(gpioProvider, PCA9685Pin.PWM_01, "Pulse 01"), 
-                gpio.provisionPwmOutputPin(gpioProvider, PCA9685Pin.PWM_02, "Pulse 02"), 
-                gpio.provisionPwmOutputPin(gpioProvider, PCA9685Pin.PWM_03, "Pulse 03"), 
+                //gpio.provisionPwmOutputPin(gpioProvider, PCA9685Pin.PWM_00, "Pulse 00"), 
+                //gpio.provisionPwmOutputPin(gpioProvider, PCA9685Pin.PWM_01, "Pulse 01"), 
+                //gpio.provisionPwmOutputPin(gpioProvider, PCA9685Pin.PWM_02, "Pulse 02"), 
+                //gpio.provisionPwmOutputPin(gpioProvider, PCA9685Pin.PWM_03, "Pulse 03"), 
                 gpio.provisionPwmOutputPin(gpioProvider, PCA9685Pin.PWM_04, "Pulse 04"), 
                 gpio.provisionPwmOutputPin(gpioProvider, PCA9685Pin.PWM_05, "Pulse 05"), 
                 gpio.provisionPwmOutputPin(gpioProvider, PCA9685Pin.PWM_06, "Pulse 06"), 
