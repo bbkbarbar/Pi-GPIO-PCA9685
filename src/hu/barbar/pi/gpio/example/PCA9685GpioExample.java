@@ -66,9 +66,45 @@ public class PCA9685GpioExample {
         for (GpioPinPwmOutput output : myOutputs) { 
             int[] onOffValues = gpioProvider.getPwmOnOffValues(output.getPin()); 
             System.out.println(output.getPin().getName() + " (" + output.getName() + "): ON value [" + onOffValues[0] + "], OFF value [" + onOffValues[1] + "]"); 
-        } 
+        }
+        gpioProvider.setPwm(PCA9685Pin.PWM_00, 0);
+        gpioProvider.setPwm(PCA9685Pin.PWM_01, 0);
+        gpioProvider.setPwm(PCA9685Pin.PWM_02, 0);
+        gpioProvider.setPwm(PCA9685Pin.PWM_08, 0);
+        gpioProvider.setPwm(PCA9685Pin.PWM_09, 0);
+        gpioProvider.setPwm(PCA9685Pin.PWM_10, 0);
         System.out.println("Press <Enter> to terminate..."); 
-        new Scanner(System.in).nextLine(); 
+        new Scanner(System.in).nextLine();
+        
+        System.out.println("!!!!!!!!!!!!!!!!!!!!");
+        
+        gpioProvider.setPwm(PCA9685Pin.PWM_08, 2000);
+        gpioProvider.setPwm(PCA9685Pin.PWM_09, 0);
+        gpioProvider.setPwm(PCA9685Pin.PWM_10, 0);
+        Thread.sleep(1000);
+        
+        gpioProvider.setPwm(PCA9685Pin.PWM_08, 0);
+        gpioProvider.setPwm(PCA9685Pin.PWM_09, 2000);
+        gpioProvider.setPwm(PCA9685Pin.PWM_10, 0);
+        for (GpioPinPwmOutput output : myOutputs) { 
+            int[] onOffValues = gpioProvider.getPwmOnOffValues(output.getPin()); 
+            System.out.println(output.getPin().getName() + " (" + output.getName() + "): ON value [" + onOffValues[0] + "], OFF value [" + onOffValues[1] + "]"); 
+        }
+        Thread.sleep(1000);
+        
+        gpioProvider.setPwm(PCA9685Pin.PWM_08, 2000);
+        gpioProvider.setPwm(PCA9685Pin.PWM_09, 0);
+        gpioProvider.setPwm(PCA9685Pin.PWM_10, 2000);
+        for (GpioPinPwmOutput output : myOutputs) { 
+            int[] onOffValues = gpioProvider.getPwmOnOffValues(output.getPin()); 
+            System.out.println(output.getPin().getName() + " (" + output.getName() + "): ON value [" + onOffValues[0] + "], OFF value [" + onOffValues[1] + "]"); 
+        }
+        Thread.sleep(1000);
+        
+        gpioProvider.setPwm(PCA9685Pin.PWM_08, 2000);
+        gpioProvider.setPwm(PCA9685Pin.PWM_09, 2000);
+        gpioProvider.setPwm(PCA9685Pin.PWM_10, 2000);
+        Thread.sleep(1000);
     } 
  
     private static int checkForOverflow(int position) { 
